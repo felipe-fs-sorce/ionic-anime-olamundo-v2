@@ -17,13 +17,23 @@
     <ion-button expand="block" class="ion-margin" (click)="listUsers()">Listar usuários</ion-button>
     <ion-button expand="block" class="ion-margin" (click)="createUsers()">Criar usuário</ion-button>
 
-    <hr>
+    <ion-item-divider></ion-item-divider>
+
+    <p>Acesso aos recursos do dispositivo.</p>
+
+    <ion-button expand="block" class="ion-margin" (click)="devStatus()">Status do Dispositivo</ion-button>
+    <ion-button expand="block" class="ion-margin" (click)="devCamera()">Tirar Foto</ion-button>
+    <ion-button expand="block" class="ion-margin" (click)="geolocation()">GPS</ion-button>
+
+    <ion-item-divider></ion-item-divider>
+
     <p>Status da aplicação:</p>
     <ul>
         <li>Listando usuários</li>
         <li>Exibe detalhes de um usuário</li>
         <li>Apaga um usuário</li>
-        <li>Formulário funciona</li>
+        <li>Editar um usuário</li>
+        <li>Cadastrar um usuário</li>
     </ul>
 
 </ion-content>

@@ -6,18 +6,19 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
 
-        <ion-title>Dadas do Usuário</ion-title>
+        <ion-title>Dados do Usuário</ion-title>
 
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-    <!-- Se usário não existe -->
+    <!-- Se usuário não existe -->
     <ion-list *ngIf="noUser">
         <ion-item color="danger">
             <ion-label class="ion-text-center">Usuário não foi encontrado!</ion-label>
         </ion-item>
+        <ion-button expand="block" class="ion-margin" (click)="listUsers()">Listar usuários</ion-button>
     </ion-list>
 
     <!-- Spinner -> Carregando dados. Aguarde... -->

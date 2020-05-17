@@ -26,6 +26,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
     // Declara componente do formulário do usuário
     UserformComponent
+  ],
+  exports: [
+
+    // Exporta componente do formulário do usuário para uso em outras páginas
+    UserformComponent
   ]
 })
 export class CreatePageModule { }

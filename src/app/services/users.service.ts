@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 // Modelagem dos dados
-import { ResponseUsers, ResponseDelUser, ResponsePostUser } from '../models/users.model';
+import { ResponseUsers, ResponseDelUser, ResponsePostUser, ResponsePutUser, ResponseUser } from '../models/users.model';
 
 
 @Injectable({
@@ -23,16 +23,19 @@ export class UsersService {
 
   // Método para obter todos os usuários
   getUsers(): Observable<ResponseUsers> {
+
+    // FAZ o GET em todos os registro da API
     return this.http.get<ResponseUsers>(this.apiUrl);
   }
 
   // Método para obter um uusário único
-  getUser(id: string): Observable<ResponseUsers> {
+  getUser(id: string): Observable<ResponseUser> {
 
     // Formata a URL para obter usuário único pelo Id
     const url = `${this.apiUrl}?id=${id}`;
 
-    return this.http.get<ResponseUsers>(url);
+    // Faz o GET  de um usuario na API
+    return this.http.get<ResponseUser>(url);
   }
 
   // Método para apagar um uusário único
@@ -41,22 +44,21 @@ export class UsersService {
     // Formata a URL para apagar usuário único pelo Id
     const url = `${this.apiUrl}?id=${id}`;
 
+    // Faz o delete na api
     return this.http.delete<ResponseDelUser>(url);
   }
 
   // Método para salvar um novo usuário
   postUser(data: any) {
-    let url = `${this.apiUrl}?`;
 
-    // Montando requisição
-    Object.keys(data).forEach(
-      (key) => {
-        url += `${key}=${data[key]}&`;
-      }
-    );
+    // Faz o post na api
+    return this.http.post<ResponsePostUser>(this.apiUrl, data);
+  }
 
-    console.log(url);
+   // Método para atualizar o usuário
+   updateUser(data: any) {
 
-    return this.http.post<ResponsePostUser>(url, data);
+    // Faz o post na api
+    return this.http.post<ResponsePutUser>(this.apiUrl, data);
   }
 }

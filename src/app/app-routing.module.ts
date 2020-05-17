@@ -50,6 +50,30 @@ const routes: Routes = [
     loadChildren: () => import('./users/create/create.module').then(m => m.CreatePageModule)
   },
 
+  // Rota para editar um registro existente
+  {
+    path: 'usuarios/editar/:id',
+    loadChildren: () => import('./users/edit/edit.module').then(m => m.EditPageModule)
+  },
+
+  // Rota para status do dispositivo
+  {
+    path: 'dev/status',
+    loadChildren: () => import('./device/status/status.module').then(m => m.StatusPageModule)
+  },
+
+  // Rota para tirar foto
+  {
+    path: 'dev/camera',
+    loadChildren: () => import('./device/camera/camera.module').then(m => m.CameraPageModule)
+  },
+
+  // Rota do GPS
+  {
+    path: 'dev/gps',
+    loadChildren: () => import('./device/geolocation/geolocation.module').then(m => m.GeolocationPageModule)
+  },
+
   // Carrega a página e404 caso a rota não exista --> Erro 404
   {
     path: '**',
