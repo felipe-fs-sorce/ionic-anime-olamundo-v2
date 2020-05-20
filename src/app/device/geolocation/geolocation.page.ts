@@ -12,12 +12,18 @@ const { Geolocation } = Plugins;
 })
 export class GeolocationPage implements OnInit {
 
+  public latitude: any;
+  public longitude: any;
+
   constructor() { }
 
   async ngOnInit() {
 
     const coordinates = await Geolocation.getCurrentPosition();
     console.log('Onde estou? ', coordinates.coords);
+
+    this.latitude = coordinates.coords.latitude;
+    this.longitude = coordinates.coords.longitude;
 
     const wait = Geolocation.watchPosition({}, (position, err) => {
       console.log('Bússola: ', position);
